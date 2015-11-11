@@ -17,28 +17,25 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-
+  Beacon
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-
+  A mobile app for people to easily check each-others location.
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-
+  Beacon makes it easy for you to know where your friends are.  Planning a dinner? Going out?  Your day's of wondering when people will show up are gone!
 ## Problem ##
-  > Describe the problem your product solves.
+  It's often difficult to coordinate with others when meeting up or organizing an event.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  Beacon makes it easy to know exactly where your guests/friends are in real-time so you can take that turkey out of the oven at the last second.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "Beacon usher's in a new era of transparency"
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Using beacon is easy.  Simply log in to xyz on your mobile phone, enter a short description of your event and share the provided URL with your friends/guests.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "Beacon changed my life"
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  Go to XYZ and get started!
