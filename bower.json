@@ -1,0 +1,21 @@
+{
+  "name": "bower.json",
+  "homepage": "https://github.com/NickPapayiannakis/2015-10-solo",
+  "authors": [
+    "Nick Papayiannakis <nikos.papayiannakis@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "grunt": "~0.4.5"
+  }
+}
