@@ -2,18 +2,90 @@
 <html>
   <head>
     <title>Beacon</title>
-    <link rel="stylesheet" type="text/css" href="../node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/normalize.css">
     <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+
   </head>
 
   <body>
 
-  
+  <div id='map'></div>
+  <div id='message'></div>
 
   <!-- Application scripts -->
   <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
   <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
-  <script src="app.js" charset="utf-8" async defer></script>
+  <script>
+
+  // MapBox configuration
+  //==========================================
+
+  L.mapbox.accessToken = 'pk.eyJ1Ijoibmlja3BhcGF5aWFubmFraXMiLCJhIjoiY2lndmd6cWY3MHBvbHc3bTVxNWZjemdwcyJ9.KU2_Pibjpd4fuj6YvE76Gg';
+
+  var map = L.mapbox.map('map', 'mapbox.dark');
+
+  // when the map loads, get user's position and set it
+
+  // Firebase
+  //==========================================
+
+  var markers = new Firebase("https://shining-heat-5760.firebaseapp.com");
+
+  // Location grab
+  //==========================================
+
+  if (navigator.geolocation) {
+
+    document.getElementById('message').innerHTML = 'Finding your location...';
+
+    var watchId = navigator.geolocation.watchPosition(function (position) {
+
+      var lat  = position.coords.latitude;
+      var lon = position.coords.longitude;
+
+      // Keep updating the position
+      var marker = L.marker([lat, lon],
+        {
+          icon: L.mapbox.marker.icon ({
+            'marker-color': '#f86767'
+          })
+        });
+
+      marker.addTo(map);
+
+      map.set({latitude: lat, longitude: lon});
+      // clear message
+      document.getElementById('message').innerHTML = '';
+
+}, function (error) {
+
+  switch(error.code) {
+      case error.PERMISSION_DENIED:
+        document.getElementById('message').innerHTML = 'User denied the request for geolocation. Please enable geolocation and try again.';
+        break;
+      case error.POSITION_UNAVAILABLE:
+        document.getElementById('message').innerHTML = 'Position information is currently unavailable. Please try again.';
+        break;
+      case error.TIMEOUT:
+        document.getElementById('message').innerHTML = 'The request to get user position data timed out. Please try again.';
+        break;
+      case error.UNKNOWN_ERROR:
+        document.getElementById('message').innerHTML = 'An unknown error occured. Please try again.';
+        break;
+    }
+
+});
+
+} else {
+  document.getElementById('message').innerHTML = 'Oops! geolocation appears to be disabled.  Please enable it and try again.';
+  }
+
+  </script>
+
 
   </body>
 </html>
